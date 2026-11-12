@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finlake"
+version = "1.0.0"
+description = "Enterprise Metadata-Driven Financial Lakehouse Platform on Databricks"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+authors = [
+    { name = "FinLake Data Engineering Team", email = "data-eng@finlake.internal" }
+]
+dependencies = [
+    "pyspark==3.5.1",
+    "delta-spark==3.2.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "chispa>=0.9.4",
+    "ruff>=0.1.0",
+    "black>=23.9.0",
+]
+
+[tool.uv]
+managed = true
+package = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*.py" = ["F821"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-ra -q"
