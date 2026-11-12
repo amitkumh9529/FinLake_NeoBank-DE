@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Testing & Linting
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Spark & Delta Local Artifacts
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+_checkpoints/
+_schema/
+
+# Databricks Asset Bundles
+.databricks/
+
+# Large Generated Datasets (Keep directory structure, ignore heavy CSVs in Git)
+00_Source_Files/01_SQL_Server/*.csv
+00_Source_Files/02_Blob/*.csv
+!00_Source_Files/02_Blob/*_sample.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
